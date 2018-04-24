@@ -43,7 +43,7 @@ app.set('snTask', snTask);
 // types of http requests from browser.
 // router.post('/login', loginDispatcher.login);
 router.get('/', function(req, res) {
-  res.send('window.html');
+  res.send('./window.html');
 });
 router.get('/tasks', taskDispatcher.getTasks);
 router.get('/success', getAuthorization.getAuth);
