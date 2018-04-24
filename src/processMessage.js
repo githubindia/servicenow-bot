@@ -27,7 +27,7 @@ module.exports = (event) => {
         // response.queryResult.fulfillmentMessages.forEach(function(element){
         //     arr.push()
         // })
-            sendTextMessage(senderId, response.result.fulfillment.messages);     
+            sendTextMessage(senderId, response.result.fulfillment.messages);   
     });
 
     apiaiSession.on('error', error => console.log(error));

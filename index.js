@@ -7,6 +7,7 @@ var config = require('./config');
 var taskDispatcher = require('./dispatcher/taskDispatcher');
 var getAuthorization = require('./dispatcher/getAuth');
 const messageWebhookController = require('./src/messageWebhook');
+const processMessage = require('./src/processMessage');
 const verification = require('./verification');
 var path = require('path');
 // var loginDispatcher = require('./dispatcher/loginDispatcher');
@@ -49,8 +50,20 @@ app.set('snTask', snTask);
 //   res.sendFile((path.resolve(__dirname + '/window.html')));
 // });
 app.get('/webhook', verification);
-app.post('/webhook', messageWebhookController);
-router.get('/getServicenow', getAuthorization.getUserInfo)
+app.post('/webhook', function(req, res){
+    if (req.body.object === 'page') {
+        req.body.entry.forEach(entry => {
+            entry.messaging.forEach(event => {
+                if (event.message && event.message.text) {
+                    //db.insertRecord(event, function(res){})
+                    processMessage(event);
+                }
+            });
+        });
+        res.status(200).end();
+    }
+});
+router.get('/getServicenow', getAuthorization.getUserInfo);
 router.get('/tasks', taskDispatcher.getTasks);
 router.get('/success', getAuthorization.getAuth);
 // router.get('/task/:taskid/comments', taskDispatcher.getComments);
