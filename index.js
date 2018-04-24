@@ -51,7 +51,7 @@ router.get('/tasks', taskDispatcher.getTasks);
 // });
 // Passport Routes
 router.get('/auth/provider', passport.authenticate('provider'));
-router.get('/auth/provider/callback', passport.authenticate('provider', { successRedirect: '/tasks', failureRedirect: '/login'}));
+router.get('/auth/provider/callback', passport.authenticate('provider', { successRedirect: 'https://www.messenger.com/closeWindow/?display_text=Authenticated', failureRedirect: '/login'}));
 
 app.use(router);
 
