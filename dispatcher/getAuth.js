@@ -12,6 +12,6 @@ module.exports = {
         }
     },
     "getUserInfo": function(request, response) {
-        request.body.
+        // request.body.
     }
 }
