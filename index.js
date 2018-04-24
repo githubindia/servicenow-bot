@@ -6,6 +6,7 @@ var router = express.Router();
 var config = require('./config');
 var taskDispatcher = require('./dispatcher/taskDispatcher');
 var getAuthorization = require('./dispatcher/getAuth');
+var path = require('path');
 // var loginDispatcher = require('./dispatcher/loginDispatcher');
 var snTask = require('./serviceNowAPI/task');
 var session = require('client-sessions');
@@ -43,7 +44,7 @@ app.set('snTask', snTask);
 // types of http requests from browser.
 // router.post('/login', loginDispatcher.login);
 router.get('/', function(req, res) {
-  res.send('./window.html');
+  res.send(File(path.resolve(__dirname + '/window.html'));
 });
 router.get('/tasks', taskDispatcher.getTasks);
 router.get('/success', getAuthorization.getAuth);
