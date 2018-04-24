@@ -9,7 +9,7 @@ var getAuthorization = require('./dispatcher/getAuth');
 // var loginDispatcher = require('./dispatcher/loginDispatcher');
 var snTask = require('./serviceNowAPI/task');
 var session = require('client-sessions');
-
+var port = process.env.port || 3000;
 app.use(session({
     cookieName: 'session',
     secret: 'af*asdf+_)))==asdf afcmnoadfadf',
@@ -53,4 +53,4 @@ router.get('/auth/provider/callback', passport.authenticate('provider', { succes
 
 app.use(router);
 
-app.listen(3000);
+app.listen(port);
