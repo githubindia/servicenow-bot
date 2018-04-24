@@ -48,7 +48,7 @@ app.set('snTask', snTask);
 // router.get('/', function(req, res) {
 //   res.sendFile((path.resolve(__dirname + '/window.html')));
 // });
-router.get('/', verification);
+router.get('/webhook', verification);
 router.post('/webhook', messageWebhookController);
 router.get('/getServicenow', getAuthorization.getUserInfo)
 router.get('/tasks', taskDispatcher.getTasks);
