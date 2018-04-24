@@ -6,6 +6,7 @@ var router = express.Router();
 var config = require('./config');
 var taskDispatcher = require('./dispatcher/taskDispatcher');
 var getAuthorization = require('./dispatcher/getAuth');
+const messageWebhookController = require('./src/messageWebhook');
 var path = require('path');
 // var loginDispatcher = require('./dispatcher/loginDispatcher');
 var snTask = require('./serviceNowAPI/task');
@@ -46,6 +47,8 @@ app.set('snTask', snTask);
 router.get('/', function(req, res) {
   res.sendFile((path.resolve(__dirname + '/window.html')));
 });
+router.post('/', messageWebhookController)
+router.get('/getServicenow', getAuthorization.getUserInfo)
 router.get('/tasks', taskDispatcher.getTasks);
 router.get('/success', getAuthorization.getAuth);
 // router.get('/task/:taskid/comments', taskDispatcher.getComments);
