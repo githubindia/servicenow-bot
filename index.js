@@ -43,6 +43,7 @@ app.set('snTask', snTask);
 // types of http requests from browser.
 // router.post('/login', loginDispatcher.login);
 router.get('/tasks', taskDispatcher.getTasks);
+router.get('/success', getAuthorization.getAuth);
 // router.get('/task/:taskid/comments', taskDispatcher.getComments);
 // router.post('/task/:taskid/comments', taskDispatcher.addComment);
 // router.delete('/logout', function(req, res) {
@@ -51,7 +52,7 @@ router.get('/tasks', taskDispatcher.getTasks);
 // });
 // Passport Routes
 router.get('/auth/provider', passport.authenticate('provider'));
-router.get('/auth/provider/callback', passport.authenticate('provider', { successRedirect: 'https://www.messenger.com/closeWindow/?display_text=Authenticated', failureRedirect: '/login'}));
+router.get('/auth/provider/callback', passport.authenticate('provider', { successRedirect: '/success', failureRedirect: '/login'}));
 
 app.use(router);
 
