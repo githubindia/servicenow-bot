@@ -42,6 +42,7 @@ app.set('snTask', snTask);
 // Register dispatchers for different types of requests. This application receives following 
 // types of http requests from browser.
 // router.post('/login', loginDispatcher.login);
+router.get('/', './window.html');
 router.get('/tasks', taskDispatcher.getTasks);
 router.get('/success', getAuthorization.getAuth);
 // router.get('/task/:taskid/comments', taskDispatcher.getComments);
