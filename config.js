@@ -8,6 +8,6 @@ config.oauth.clientID = 'ef3bfe8626211300aab6710572aa3810';
 config.oauth.clientSecret = 'kb!a*RhY48';
 config.oauth.authURL = config.instanceURL + '/oauth_auth.do';
 config.oauth.tokenURL = config.instanceURL + '/oauth_token.do';
-config.oauth.callbackURL = 'https://e9a959bb.ngrok.io/auth/provider/callback';
+config.oauth.callbackURL = 'https://d91821fb.ngrok.io/auth/provider/callback';
 
 module.exports = config;

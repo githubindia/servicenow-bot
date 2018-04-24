@@ -2,12 +2,15 @@ var config = require('../config');
 
 module.exports = {
     "getTasks": function(serverRequest, serverResponse) {
+        console.log(serverRequest.body);
+        console.log("-----------------------");
+        console.log(serverRequest.session);
         var session = serverRequest.session;
         if (session && session.passport && session.passport.user.accessToken) {
             var SNTask = serverRequest.app.get('snTask');
             var options = serverRequest.app.get('options');
             var snTask = new SNTask(config.instanceURL, session.passport.user.accessToken, options);
-             snTask.getTasks(function(error, response, body) {
+            snTask.getTasks(function(error, response, body) {
                 //serverRequest.app.get('respLogger').logResponse(options, response, body);
                 if (!error) {
                     if (response.statusCode == 200) {

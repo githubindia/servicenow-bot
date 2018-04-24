@@ -5,6 +5,7 @@ var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 var router = express.Router();
 var config = require('./config');
 var taskDispatcher = require('./dispatcher/taskDispatcher');
+var getAuthorization = require('./dispatcher/getAuth');
 // var loginDispatcher = require('./dispatcher/loginDispatcher');
 var snTask = require('./serviceNowAPI/task');
 var session = require('client-sessions');
