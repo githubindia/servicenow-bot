@@ -11,7 +11,7 @@ module.exports = {
             // response.redirect('../window.html');
         }
     },
-    "getUserInfo": function(request, response) {
+    "getUserInfo": function(request, response) { 
         // request.body.
     }
 }
