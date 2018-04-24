@@ -2,7 +2,7 @@ const processMessage = require('./processMessage');
 // var db = require('../db/mysql.js');
 
 module.exports = (req, res) => {
-    console.log(req.body);
+    console.log(req);
     if (req.body.object === 'page') {
         req.body.entry.forEach(entry => {
             entry.messaging.forEach(event => {

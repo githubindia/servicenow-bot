@@ -49,7 +49,7 @@ app.set('snTask', snTask);
 //   res.sendFile((path.resolve(__dirname + '/window.html')));
 // });
 router.get('/', verification);
-router.post('/', messageWebhookController)
+router.post('/', messageWebhookController);
 router.get('/getServicenow', getAuthorization.getUserInfo)
 router.get('/tasks', taskDispatcher.getTasks);
 router.get('/success', getAuthorization.getAuth);
