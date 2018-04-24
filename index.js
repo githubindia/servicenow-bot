@@ -7,6 +7,7 @@ var config = require('./config');
 var taskDispatcher = require('./dispatcher/taskDispatcher');
 var getAuthorization = require('./dispatcher/getAuth');
 const messageWebhookController = require('./src/messageWebhook');
+const verification = require('./verification');
 var path = require('path');
 // var loginDispatcher = require('./dispatcher/loginDispatcher');
 var snTask = require('./serviceNowAPI/task');
@@ -44,9 +45,10 @@ app.set('snTask', snTask);
 // Register dispatchers for different types of requests. This application receives following 
 // types of http requests from browser.
 // router.post('/login', loginDispatcher.login);
-router.get('/', function(req, res) {
-  res.sendFile((path.resolve(__dirname + '/window.html')));
-});
+// router.get('/', function(req, res) {
+//   res.sendFile((path.resolve(__dirname + '/window.html')));
+// });
+router.get('/', verification);
 router.post('/', messageWebhookController)
 router.get('/getServicenow', getAuthorization.getUserInfo)
 router.get('/tasks', taskDispatcher.getTasks);
